@@ -62,6 +62,14 @@ npm install just-validate --save
   <script>
     const regEx = /^\d*$/; // Regular Expression para números inteiros
 
+    function mostraErros() {
+      alert('Formulário com erros!');
+    }
+
+    function mostraSucesso() {
+      alert('Formulário preenchido com sucesso!');
+    }
+
     // Objeto para regras
     const rules = {
       rules: {
@@ -76,8 +84,12 @@ npm install just-validate --save
         num: {
           strength: 'Apenas números'
         }
-      }
+      },
+      focusWrongField: true,
+      submitHandler: mostraSucesso,
+      invalidFormCallback: mostraErros
     }
+
 
     // Aplicando regras da biblioteca ao formulário e objeto com regras customizadas
     new JustValidate('form', rules);
