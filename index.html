@@ -80,7 +80,10 @@
 
 
     // Aplicando regras da biblioteca ao formulário e objeto com regras customizadas
-    new JustValidate('form', rules);
+    const validador = new JustValidate('form', rules);
+
+    // Alterando mensagem padrão
+    validador.defaultMessages.required = 'Campo necessário';
   </script>
 </body>
 
